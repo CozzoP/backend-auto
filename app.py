@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
-import psycopg2
 import os
+import psycopg2
 
 app = Flask(__name__)
 
@@ -24,4 +24,5 @@ def add_auto():
     conn.commit()
     return {"status": "ok"}
 
-app.run(host="0.0.0.0", port=os.environ.get("PORT", 5000))
+port = int(os.environ.get("PORT", 5000))
+app.run(host="0.0.0.0", port=port)
